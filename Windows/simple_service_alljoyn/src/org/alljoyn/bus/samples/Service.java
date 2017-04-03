@@ -25,6 +25,15 @@ import org.alljoyn.bus.SessionPortListener;
 import org.alljoyn.bus.Status;
 
 public class Service {
+	
+	/*
+	 * CagatayS|02.04.2017
+	 * Load native alljoyn library.
+	 * You should download alljoyn source code and compile it for x86 or x86_64
+	 * Please note that file naming convention should be the following:
+	 * Windows: alljoyn_java.dll
+	 * Linux: liballjoyn_java.so
+	 */
     static {
         System.loadLibrary("alljoyn_java");
     }
@@ -35,6 +44,11 @@ public class Service {
     static boolean sessionEstablished = false;
     static int sessionId;
 
+	/*
+	 * CagatayS|02.04.2017
+	 * Our simple service just has one method 'ping' which can be invoked from the remote device
+	 * Ping method simple returns the given argument back, like an echo server
+	 */
     public static class SimpleService implements SimpleInterface, BusObject {
         public String Ping(String str) {
             return str;
@@ -49,15 +63,27 @@ public class Service {
         Status status;
 
         SimpleService mySampleService = new SimpleService();
-
+        
+    	/*
+    	 * CagatayS|02.04.2017
+    	 * Registering AllJoyn bus with a well-known service name
+    	 */
         status = mBus.registerBusObject(mySampleService, "/SimpleService");
         if (status != Status.OK) {
             return;
         }
         System.out.println("BusAttachment.registerBusObject successful");
-
+        
+    	/*
+    	 * CagatayS|02.04.2017
+    	 * Registering bus events to listen them
+    	 */
         mBus.registerBusListener(new BusListener());
 
+    	/*
+    	 * CagatayS|02.04.2017
+    	 * Connect to AllJoyn bus
+    	 */
         status = mBus.connect();
         if (status != Status.OK) {
 
@@ -114,7 +140,11 @@ public class Service {
                 return;
             }
         }
-
+        
+    	/*
+    	 * CagatayS|02.04.2017
+    	 * Announce yourself to let other client to be informed
+    	 */
         AboutObj aboutObj = new AboutObj(mBus);
         status = aboutObj.announce(contactPort.value, new MyAboutData());
         if (status != Status.OK) {

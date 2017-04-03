@@ -52,19 +52,19 @@ void * ChangeGenericDeviceRepresentation (void *param);
 
 // Set of strings for each of platform Info fields
 std::string  platformId = "0A3E0D6F-DBF5-404E-8719-D6880042463A";
-std::string  manufacturerName = "OCF";
+std::string  manufacturerName = "Bogazici University";
 std::string  manufacturerLink = "https://www.iotivity.org";
-std::string  modelNumber = "myModelNumber";
-std::string  dateOfManufacture = "2016-01-15";
+std::string  modelNumber = "demoModelNumber";
+std::string  dateOfManufacture = "2017-04-04";
 std::string  platformVersion = "myPlatformVersion";
-std::string  operatingSystemVersion = "myOS";
-std::string  hardwareVersion = "myHardwareVersion";
+std::string  operatingSystemVersion = "demoOS";
+std::string  hardwareVersion = "demoHardwareVersion";
 std::string  firmwareVersion = "1.0";
 std::string  supportLink = "https://www.iotivity.org";
 std::string  systemTime = "2016-01-15T11.01";
 
 // Set of strings for each of device info fields
-std::string  deviceName = "IoTivity Simple Server";
+std::string  deviceName = "IoTivity Demo Server";
 std::string  deviceType = "oic.wk.tv";
 std::string  specVersion = "ocf.1.1.0";
 std::vector<std::string> dataModelVersions = {"ocf.res.1.1.0", "ocf.sh.1.1.0"};

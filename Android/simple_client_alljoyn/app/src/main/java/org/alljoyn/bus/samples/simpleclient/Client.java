@@ -48,7 +48,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class Client extends Activity {
-    /* Load the native alljoyn_java library. */
+    /*
+     * CagatayS|02.04.2017
+     * Load native alljoyn library.
+     * You should download alljoyn source code and compile it for android
+     */
     static {
         System.loadLibrary("alljoyn_java");
     }

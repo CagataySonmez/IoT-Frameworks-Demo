@@ -24,6 +24,11 @@ import org.alljoyn.bus.Status;
 import org.alljoyn.bus.Variant;
 import org.alljoyn.bus.Version;
 
+/*
+ * CagatayS|02.04.2017
+ * About data is important for AllJoyn SDK.
+ * Other clients get information about you via the AboutDataListener
+ */
 public class MyAboutData implements AboutDataListener {
 
     @Override
@@ -36,8 +41,8 @@ public class MyAboutData implements AboutDataListener {
         aboutData.put("DefaultLanguage", new Variant(new String("en")));
         aboutData.put("DeviceId", new Variant(new String("93c06771-c725-48c2-b1ff-6a2a59d445b8")));
         aboutData.put("ModelNumber", new Variant(new String("A1B2C3")));
-        aboutData.put("SupportedLanguages", new Variant(new String[] { "en", "es" }));
-        aboutData.put("DateOfManufacture", new Variant(new String("2014-09-23")));
+        aboutData.put("SupportedLanguages", new Variant(new String[] { "en", "tr" }));
+        aboutData.put("DateOfManufacture", new Variant(new String("2017-04-04")));
         aboutData.put("SoftwareVersion", new Variant(new String("1.0")));
         aboutData.put("AJSoftwareVersion", new Variant(Version.get()));
         aboutData.put("HardwareVersion", new Variant(new String("0.1alpha")));
@@ -47,15 +52,15 @@ public class MyAboutData implements AboutDataListener {
         // If the language String is null or an empty string we return the default
         // language
         if ((language == null) || (language.length() == 0) || language.equalsIgnoreCase("en")) {
-            aboutData.put("DeviceName", new Variant(new String("A device name")));
-            aboutData.put("AppName", new Variant(new String("An application name")));
-            aboutData.put("Manufacturer", new Variant(new String("A mighty manufacturing company")));
-            aboutData.put("Description",new Variant( new String("Sample showing the about feature in a service application")));
-        } else if (language.equalsIgnoreCase("es")) { // Spanish
-            aboutData.put("DeviceName", new Variant(new String("Un nombre de dispositivo")));
-            aboutData.put("AppName", new Variant(new String("Un nombre de aplicación")));
-            aboutData.put("Manufacturer", new Variant(new String("Una empresa de fabricación de poderosos")));
-            aboutData.put("Description",new Variant( new String("Muestra que muestra la característica de sobre en una aplicación de servicio")));
+            aboutData.put("DeviceName", new Variant(new String("Demo Device")));
+            aboutData.put("AppName", new Variant(new String("Demo Application")));
+            aboutData.put("Manufacturer", new Variant(new String("Bogazici University")));
+            aboutData.put("Description",new Variant( new String("Demo service application for cmpe 450 lecture")));
+        } else if (language.equalsIgnoreCase("tr")) { // Turkish
+            aboutData.put("DeviceName", new Variant(new String("Demo Cihaz")));
+            aboutData.put("AppName", new Variant(new String("Demo Uygulama")));
+            aboutData.put("Manufacturer", new Variant(new String("Bogazici Universitesi")));
+            aboutData.put("Description",new Variant( new String("cmpe 450 dersi icin demo uygulama")));
         } else {
             throw new ErrorReplyBusException(Status.LANGUAGE_NOT_SUPPORTED);
         }
@@ -68,10 +73,10 @@ public class MyAboutData implements AboutDataListener {
         Map<String, Variant> aboutData = new HashMap<String, Variant>();
         aboutData.put("AppId", new Variant(new byte[] {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16}));
         aboutData.put("DefaultLanguage", new Variant(new String("en")));
-        aboutData.put("DeviceName", new Variant(new String("A device name")));
+        aboutData.put("DeviceName", new Variant(new String("Demo Device")));
         aboutData.put("DeviceId", new Variant(new String("93c06771-c725-48c2-b1ff-6a2a59d445b8")));
-        aboutData.put("AppName", new Variant( new String("An application name")));
-        aboutData.put("Manufacturer", new Variant(new String("A mighty manufacturing company")));
+        aboutData.put("AppName", new Variant( new String("Demo Application")));
+        aboutData.put("Manufacturer", new Variant(new String("Bogazici University")));
         aboutData.put("ModelNumber", new Variant(new String("A1B2C3")));
         return aboutData;
     }

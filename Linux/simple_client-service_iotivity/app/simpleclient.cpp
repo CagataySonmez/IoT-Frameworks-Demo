@@ -311,6 +311,11 @@ void foundResource(std::shared_ptr<OCResource> resource)
     }
 }
 
+/*
+* CagatayS|02.04.2017
+* Interactive menu for some specific operations.
+* In this demo, we just use coap put and get operations
+*/
 void showInteractiveMenu()
 {
     char input;
@@ -401,6 +406,10 @@ int main(int argc, char* argv[]) {
         // makes it so that all boolean values are printed as 'true/false' in this stream
         std::cout.setf(std::ios::boolalpha);
 
+		/*
+		* CagatayS|02.04.2017
+		* Let user to discover all devices or a specific device
+		*/
         char input;
         std::cout << "-----------------------------------" << std::endl;
         std::cout << "Select an operation" << std::endl;
